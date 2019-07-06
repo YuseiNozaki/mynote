@@ -8,8 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="index.php"><h1>My Note</h1></a>
-
     <?php
         require('connect.php');
 
@@ -19,25 +17,27 @@
 
         foreach($sql as $data);
 
-        printf('<form action="update.php" method="POST">');
-            printf('<table>');
-                printf('<tr>');
-                    printf('<td><label>title</label></td>');
-                    printf('<td><input type="text" name="title" value="%s"></td>', $data['title']);
-                printf('</tr>');
-                printf('<tr>');
-                    printf('<td><label>text</label></td>');
-                    printf('<td><input type="text" name="body" value="%s"></td>', $data['body']);
-                printf('</tr>');
-                printf('<tr><input type="hidden" name="id" value="%d"></tr>', $data['id']);
-                printf('<tr>');
-                    printf('<td><input type="submit" value="save"></td>');
-                    printf('<td><input type="reset" value="reset"></td>');
-                printf('</tr>');
-            printf('</table>');
-        printf('</form>');
-
         $pdo = null;
     ?>
+
+    <a href="index.php"><h1>My Note</h1></a>
+
+    <form action="update.php" method="POST">
+        <table>
+            <tr>
+                <td><label>title</label></td>
+                <td><input type="text" name="title" value="<?= hsc($data['title']) ?>"></td>
+            </tr>
+            <tr>
+                <td><label>text</label></td>
+                <td><input type="text" name="body" value="<?= hsc($data['body']) ?>"></td>
+            </tr>
+            <tr><input type="hidden" name="id" value="<?= $data['id'] ?>"></tr>
+            <tr>
+                <td><input type="submit" value="save"></td>
+                <td><input type="reset" value="reset"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>

@@ -21,20 +21,20 @@
 
         $sql->execute();
 
+        $pdo = null;
+
         $count = 0;
 
         foreach($sql as $data){
-            printf('<p>');
-                printf('<form action="detail.php" method="POST" name=detail_form_%d>', $count);
-                    printf('<input type="hidden" name="id" value="%d">', $data['id']);
-                    printf('・ <a href="javascript: detail_form_%d.submit()">%s</a>', $count, hsc($data['title']));
-                printf('</form>');
-            printf('</p>');
+            echo '<p>';
+                echo '<form action="detail.php" method="POST" name="detail_form_', $count, '">';
+                    echo '<input type="hidden" name="id" value="', $data['id'], '">';
+                    echo '・ <a href="javascript: detail_form_', $count, '.submit()">', hsc($data['title']), '</a>';
+                echo '</form>';
+            echo '</p>';
 
             $count++;
         }
-
-        $pdo = null;
     ?>
 </body>
 </html>

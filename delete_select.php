@@ -17,19 +17,17 @@
 
         $sql->execute();
 
-        foreach($sql as $data){
-            printf('<p>');
-                printf('<form action="delete.php" method="POST">');
-                    printf('<tr>');
-                        printf('<td><input type="submit" value="delete"></td>');
-                        printf('<td>%s</td>', hsc($data['title']));
-                        printf('<td><input type="hidden" name="id" value="%d"></td>', $data['id']);
-                    printf('</tr>');
-                printf('</form>');
-            printf('</p>');
-        }
-
         $pdo = null;
+
+        foreach($sql as $data){
+            echo '<p>';
+                echo '<form action="delete.php" method="POST">';
+                        echo '<input type="submit" value="delete">';
+                        echo hsc($data['title']);
+                        echo '<input type="hidden" name="id" value="', $data['id'], '">';
+                echo '</form>';
+            echo '</p>';
+        }
     ?>
 </body>
 </html>
