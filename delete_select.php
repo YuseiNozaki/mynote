@@ -1,3 +1,13 @@
+<?php
+    require('connect.php');
+
+    $sql = $pdo->prepare('SELECT * FROM note');
+
+    $sql->execute();
+
+    $pdo = null;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,24 +20,14 @@
 <body>
     <a href="index.php"><h1>My Note</h1></a>
 
-    <?php
-        require('connect.php');
-
-        $sql = $pdo->prepare('SELECT * FROM note');
-
-        $sql->execute();
-
-        $pdo = null;
-
-        foreach($sql as $data){
-            echo '<p>';
-                echo '<form action="delete.php" method="POST">';
-                        echo '<input type="submit" value="delete">';
-                        echo hsc($data['title']);
-                        echo '<input type="hidden" name="id" value="', $data['id'], '">';
-                echo '</form>';
-            echo '</p>';
-        }
-    ?>
+    <?php foreach($sql as $data): ?>
+        <p>
+            <form action="delete.php" method="POST">
+                <input type="submit" value="delete">
+                <?= hsc($data['title']) ?>
+                <input type="hidden" name="id" value="<?= $data['id'] ?>">
+            </form>
+        </p>
+    <?php endforeach; ?>
 </body>
 </html>

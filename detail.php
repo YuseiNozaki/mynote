@@ -1,3 +1,15 @@
+<?php
+    require('connect.php');
+
+    $sql = $pdo->prepare('SELECT * FROM note WHERE id=?');
+
+    $sql->execute([$_POST['id']]);
+
+    foreach($sql as $data);
+
+    $pdo = null;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +20,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        require('connect.php');
-
-        $sql = $pdo->prepare('SELECT * FROM note WHERE id=?');
-
-        $sql->execute([$_POST['id']]);
-
-        foreach($sql as $data);
-
-        $pdo = null;
-    ?>
-
     <a href="index.php"><h1>My Note</h1></a>    
 
     <p>
