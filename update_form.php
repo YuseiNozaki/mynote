@@ -20,7 +20,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="index.php"><h1>My Note</h1></a>
+    <h1><a href="index.php">My Note</a></h1>
 
     <form action="update.php" method="POST">
         <table>

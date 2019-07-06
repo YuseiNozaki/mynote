@@ -18,7 +18,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="index.php"><h1>My Note</h1></a>
+    <h1><a href="index.php">My Note</a></h1>
 
     <?php foreach($sql as $data): ?>
         <p>
