@@ -6,8 +6,6 @@
     $sql->execute();
 
     $pdo = null;
-
-    $count = 0;
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +26,11 @@
 
     <?php foreach($sql as $data): ?>
         <p>
-            <form action="detail.php" method="POST" name="detail_form_<?= $count ?>">
+            <form action="detail.php" method="POST" name="detail_form_<?= $data['id'] ?>">
                 <input type="hidden" name="id" value="<?= $data['id'] ?>">
-                <ul><li><a href="javascript: detail_form_<?= $count ?>.submit()"><?= hsc($data['title']) ?></a></li></ul>
+                <ul><li><a href="javascript: detail_form_<?= $data['id'] ?>.submit()"><?= hsc($data['title']) ?></a></li></ul>
             </form>
         </p>
-
-        <?php $count++; ?>
     <?php endforeach; ?>
 </body>
 </html>
