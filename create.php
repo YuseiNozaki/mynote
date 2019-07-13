@@ -10,13 +10,9 @@
 
         header('location: index.php');
         exit();
-
+        
     }else{
-        printf('<script>');
-            printf('alart("error");');
-        printf('</script>');
-
-        header('location: index.php');
+        header('location: create_form.html');
         exit();
     }
 ?>

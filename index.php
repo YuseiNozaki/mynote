@@ -20,7 +20,7 @@
 <body>
     <h1><a href="index.php">My Note</a></h1>
 
-    <p><a href="create_form.php">new note</a></p>
+    <p><a href="create_form.html">new note</a></p>
 
     <p><a href="delete_select.php">delete</a></P>
 

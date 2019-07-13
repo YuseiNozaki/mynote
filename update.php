@@ -1,6 +1,5 @@
 <?php
     if(!empty($_POST['title']) && !empty($_POST['body'])){
-
         require('connect.php');
 
         $sql = $pdo->prepare('UPDATE note SET title=?, body=? WHERE id=?');
@@ -13,11 +12,7 @@
         exit();
 
     }else{
-        printf('<script>');
-            printf('alart("error");');
-        printf('</script>');
-
-        header('location: index.php');
+        header('location: update_form.php');
         exit();
     }
 ?>
